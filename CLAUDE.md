@@ -15,6 +15,7 @@ Repositório central das landing pages (LPs) da **Stark Strong**, fabricante bra
 ```
 lps_stark_strong/
 ├── CLAUDE.md              ← este arquivo (regras + índice de LPs)
+├── index.html             ← página inicial: redireciona para a LP ativa (hoje lps/2026-11-black-stark/)
 ├── brand/                 ← logos, fontes, paleta, brandbook (PDF) e referências
 ├── shared/                ← CSS/JS/componentes reutilizados entre LPs
 └── lps/
