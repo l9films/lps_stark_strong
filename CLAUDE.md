@@ -42,7 +42,7 @@ Atualize esta tabela a cada LP criada, publicada ou encerrada.
 |----|-------|------------|----------------|--------|-----|
 | Glute Strong · Fitness Brasil Expo 2026 | `lps/2026-08-glute-strong-fitness-brasil` | GreatPages | Reserva de atendimento prioritário no stand F13 (Rua 1, 100 m²) · simulador de área | a confirmar (feira já ocorreu: 27–29/08/2026) | a preencher |
 | Black Stark Strong · Black Friday 2026 | `lps/2026-11-black-stark` | HTML estático | Queima de estoque geração 5 (até 50% OFF, PIX) · seleção de equipamentos → WhatsApp comercial | em revisão | prévia: https://l9films.github.io/lps_stark_strong/ · oficial prevista: https://starkstrong.com.br/black-26/ |
-| Saldão de Natal Stark Strong 2026 | `lps/2026-12-saldao-natal` | HTML estático (prévia no GitHub Pages) | Queima de estoque 07–26/12 (até 50% OFF, PIX) · seleção → WhatsApp comercial | em produção (layout com dados de exemplo) | prévia: https://l9films.github.io/lps_stark_strong/lps/2026-12-saldao-natal/ |
+| Saldão de Natal Stark Strong 2026 | `lps/2026-12-saldao-natal` | HTML estático (prévia no GitHub Pages) | Queima de estoque 07–26/12 (até 50% OFF, PIX) · seleção → WhatsApp comercial | em produção (layout com dados de exemplo) | prévia: https://l9films.github.io/lps_stark_strong/natal/ (cópia em `natal/`) · https://l9films.github.io/lps_stark_strong/lps/2026-12-saldao-natal/ |
 
 Status possíveis: `briefing` → `em produção` → `em revisão` → `publicada` → `encerrada`.
 
