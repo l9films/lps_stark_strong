@@ -41,7 +41,7 @@ Atualize esta tabela a cada LP criada, publicada ou encerrada.
 | LP | Pasta | Plataforma | Objetivo / CTA | Status | URL |
 |----|-------|------------|----------------|--------|-----|
 | Glute Strong · Fitness Brasil Expo 2026 | `lps/2026-08-glute-strong-fitness-brasil` | GreatPages | Reserva de atendimento prioritário no stand F13 (Rua 1, 100 m²) · simulador de área | a confirmar (feira já ocorreu: 27–29/08/2026) | a preencher |
-| Black Stark Strong · Black Friday 2026 | `lps/2026-11-black-stark` | HTML estático | Queima de estoque geração 5 (até 50% OFF, PIX) · seleção de equipamentos → WhatsApp comercial | em revisão | https://starkstrong.com.br/black-26/ (prevista) |
+| Black Stark Strong · Black Friday 2026 | `lps/2026-11-black-stark` | HTML estático | Queima de estoque geração 5 (até 50% OFF, PIX) · seleção de equipamentos → WhatsApp comercial | em revisão | prévia: https://l9films.github.io/lps_stark_strong/ · oficial prevista: https://starkstrong.com.br/black-26/ |
 
 Status possíveis: `briefing` → `em produção` → `em revisão` → `publicada` → `encerrada`.
 

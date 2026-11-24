@@ -14,6 +14,7 @@ LP de queima de estoque (Black Friday) com equipamentos geração 5 à pronta en
 | WhatsApp | `5545999265525` (variável `WHATS` no `index.html`) |
 | URL prevista | https://starkstrong.com.br/black-26/ (canonical da página) |
 | Plataforma | HTML estático (escopo `.bk` para embutir na plataforma do site) |
+| Prévia | https://l9films.github.io/lps_stark_strong/ (GitHub Pages, atualiza a cada push no `main`) |
 | Status | em revisão |
 
 ## Estrutura
