@@ -4,121 +4,145 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Saldão de Natal Stark Strong</title>
-<!-- Prévia com dados de exemplo: remover o noindex quando produtos/preços reais entrarem -->
+<!-- Prévia: remover o noindex quando o estoque atualizado entrar -->
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" sizes="48x48" href="../2026-11-black-stark/img/favicon-48.png">
 <meta name="description" content="Saldão de Natal Stark Strong: até 50% OFF em equipamentos de academia à pronta entrega. De 07/12 a 26/12/2026 ou enquanto durar o estoque.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lexend+Exa:wght@300;400;600;700&family=League+Spartan:wght@500;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../2026-11-black-stark/img/9003.jpg">
 <style>
-/* VOICE: premium, sóbrio, noite de Natal numa academia escura — nada de vermelho/verde
-   IDEA: vitrine de loja à noite, decorada com pisca-pisca dourado
-   PICTURE: árvore em espiral feita só de luzes + varal de pisca-pisca no topo, piscando
-   COLOUR/TYPE: Preto Stark #111, grafite #1F2021, dourado #C7A56A, off-white; Lexend Exa (no lugar da Arian LT) + League Spartan nos números
-   LAYOUT: hero full-screen, catálogo em grid, formulário em coluna, rodapé */
-:root{color-scheme:dark;--bg:#111111;--g2:#1F2021;--ink:#F3F1EC;--mute:#a7a49c;--gold:#C7A56A;--gold2:#E8D3A3;--warm:#FFE9C2;--line:rgba(199,165,106,.22)}
+/* VOICE: premium, noite de Natal numa academia escura; sem vermelho/verde
+   IDEA: vitrine à noite com letreiro de lâmpadas e máquina enfeitada com pisca-pisca
+   PICTURE: máquina real de 50% OFF com pisca-pisca na frente + "50% OFF" em letreiro de lâmpadas; tudo acende na entrada
+   COLOUR/TYPE: preto, grafite, off-white, ouro só em detalhe; League Spartan (títulos/números) + Inter (texto)
+   LAYOUT: hero em duas colunas (texto+letreiro | máquina), catálogo, formulário, rodapé */
+:root{color-scheme:dark;--preto:#111111;--grafite:#1F2021;--offwhite:#F3F1EC;--branco:#FFFFFF;--ouro:#C7A56A;--ouro2:#E8D3A3;--quente:#FFE9C2;--mute:#a7a49c;--linha:rgba(199,165,106,.22)}
 *{box-sizing:border-box;min-width:0}
 html{scroll-behavior:smooth;scroll-padding-top:72px}
-body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 "Lexend Exa",system-ui,sans-serif;overflow-x:clip;letter-spacing:-.01em}
+body{margin:0;background:var(--preto);color:var(--offwhite);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
 a{color:inherit}
-.num{font-family:"League Spartan",sans-serif}
+.num,h1,h2,h3,.btn,.logo{font-family:"League Spartan",sans-serif}
 .wrap{max-width:1240px;margin:0 auto;padding:0 max(5vw,16px)}
 
-/* topo */
 .top{position:fixed;inset:0 0 auto;z-index:20;display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px max(5vw,16px);background:linear-gradient(#111111e6,#11111100)}
-.logo{font-weight:700;letter-spacing:.18em;font-size:15px;text-transform:uppercase;text-decoration:none}
-.logo small{display:block;font-weight:300;letter-spacing:.3em;font-size:10px;color:var(--gold)}
-.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:0 26px;border-radius:2px;border:1px solid var(--gold);background:var(--gold);color:#111;font:600 14px "Lexend Exa",sans-serif;text-decoration:none;cursor:pointer;transition:.25s}
-.btn:hover{background:var(--gold2);box-shadow:0 0 28px #c7a56a66}
-.btn.ghost{background:transparent;color:var(--gold)}
+.logo{font-weight:700;letter-spacing:.2em;font-size:16px;text-transform:uppercase;text-decoration:none}
+.logo small{display:block;font-weight:300;letter-spacing:.32em;font-size:10px;color:var(--ouro)}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:2px 26px 0;border-radius:2px;border:1px solid var(--ouro);background:var(--ouro);color:var(--preto);font-weight:700;font-size:15px;letter-spacing:.06em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:.25s}
+.btn:hover{background:var(--ouro2);box-shadow:0 0 28px #c7a56a66}
+.btn.ghost{background:transparent;color:var(--ouro)}
 .btn.ghost:hover{background:#c7a56a1a}
-.btn:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--gold2);outline-offset:3px}
+.btn:focus-visible,input:focus-visible,button:focus-visible{outline:2px solid var(--ouro2);outline-offset:3px}
 
-/* hero */
-.hero{position:relative;min-height:100svh;display:grid;align-items:center;overflow:hidden;background:radial-gradient(ellipse 70% 60% at 72% 58%,#2a2419 0%,#161513 45%,#111 75%)}
+/* ===== HERO ===== */
+.hero{position:relative;min-height:100svh;display:grid;align-items:center;overflow:hidden;background:radial-gradient(ellipse 60% 70% at 74% 55%,#2a2419 0%,#171512 45%,var(--preto) 78%)}
 .hero canvas,.hero svg.strand{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
-.hero .floor{position:absolute;left:0;right:0;bottom:0;height:28%;background:linear-gradient(#11111100,#111 85%);pointer-events:none}
-.hgrid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,.95fr);gap:24px;align-items:center;padding-top:110px;padding-bottom:60px}
-.kicker{display:flex;align-items:center;gap:12px;color:var(--gold);font-size:13px;margin:0 0 18px}
-.kicker::before{content:"";width:34px;height:1px;background:var(--gold)}
-h1{margin:0;font-weight:300;font-size:clamp(40px,6.4vw,84px);line-height:1;text-transform:uppercase;letter-spacing:.02em;text-wrap:balance}
-h1 b{display:block;font-weight:700;color:var(--gold);text-shadow:0 0 34px #c7a56a55}
-.sub{font-size:clamp(17px,1.6vw,21px);margin:22px 0 6px;max-width:30ch}
-.sub .num{color:var(--gold2);font-size:1.25em;font-weight:700}
-.fine{color:var(--mute);font-size:13px;margin:0 0 30px}
+.bokeh{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.bokeh i{position:absolute;border-radius:50%;background:radial-gradient(circle,#ffe9c2aa,#c7a56a33 55%,transparent 70%);filter:blur(3px);opacity:0;transition:opacity 1.2s ease var(--t,0s)}
+.on .bokeh i{opacity:var(--o,.5)}
+.hgrid{position:relative;z-index:2;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.05fr);gap:clamp(16px,3vw,48px);align-items:center;padding-top:104px;padding-bottom:56px}
+.kicker{display:flex;align-items:center;gap:12px;color:var(--ouro);font-size:13px;letter-spacing:.08em;margin:0 0 14px;opacity:0;transition:opacity .6s ease 1.5s}
+.kicker::before{content:"";width:34px;height:1px;background:var(--ouro)}
+h1{margin:0;font-weight:300;font-size:clamp(30px,3.6vw,48px);line-height:1.02;text-transform:uppercase;letter-spacing:.06em;opacity:.12;transition:opacity .5s ease 1.5s,text-shadow .5s ease 1.5s}
+h1 b{font-weight:700}
+.on .kicker,.on h1{opacity:1}
+.on h1{text-shadow:0 0 30px #ffe9c233}
+.mq{display:block;width:100%;margin:10px 0 6px;overflow:visible}
+.mq .b{opacity:.07;transition:opacity .18s ease var(--t,0s)}
+.on .mq .b{opacity:1}
+.spark .mq .b.s{animation:tw2 var(--d,1.8s) ease-in-out var(--dl,0s) infinite}
+.upto{display:flex;align-items:baseline;gap:10px;color:var(--mute);font-size:13px;letter-spacing:.06em;text-transform:uppercase;margin:0}
+.sub{font-size:clamp(16px,1.4vw,19px);margin:14px 0 4px;max-width:34ch}
+.sub b{color:var(--ouro2);font-weight:600}
+.fine{color:var(--mute);font-size:13px;margin:0 0 24px}
 .ctas{display:flex;flex-wrap:wrap;gap:12px}
-.count{margin-top:34px;display:flex;gap:22px;align-items:flex-end}
+.count{margin-top:28px;display:flex;gap:22px;align-items:flex-end}
 .count div{text-align:center}
-.count .num{display:block;font-size:40px;font-weight:700;line-height:1;color:var(--ink)}
+.count .num{display:block;font-size:38px;font-weight:700;line-height:1;color:var(--offwhite)}
 .count span:last-child{font-size:11px;color:var(--mute)}
-.count p{margin:0 0 4px;font-size:12px;color:var(--gold);align-self:center;max-width:9ch;line-height:1.3}
-.treebox{position:relative;aspect-ratio:3/4;max-height:76svh;width:100%;justify-self:center}
-.treebox svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.count p{margin:0 0 4px;font-size:12px;color:var(--ouro);align-self:center;max-width:9ch;line-height:1.3}
+.fade{opacity:0;transform:translateY(8px);transition:opacity .6s ease 1.9s,transform .6s ease 1.9s}
+.on .fade{opacity:1;transform:none}
 
-/* lâmpadas */
-.b{animation:tw var(--d,2.4s) ease-in-out var(--dl,0s) infinite alternate;transform-box:fill-box;transform-origin:center}
-@keyframes tw{0%{opacity:.18}55%{opacity:1}100%{opacity:.55}}
-.chase .b{animation-name:tw2}
-@keyframes tw2{0%,100%{opacity:.25}50%{opacity:1}}
-.star{animation:st 3.2s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
-@keyframes st{50%{transform:scale(1.12);filter:drop-shadow(0 0 18px #ffe9c2)}}
+.stage{position:relative;aspect-ratio:1;width:100%;max-height:80svh;justify-self:center}
+.stage .shot{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1s ease;-webkit-mask-image:radial-gradient(closest-side,#000 48%,transparent 100%);mask-image:radial-gradient(closest-side,#000 48%,transparent 100%)}
+.stage .shot.cur{opacity:1}
+.stage img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.15);transition:filter 1.2s ease .3s}
+.on .stage img{filter:brightness(1)}
+.stage svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.stage svg .b{opacity:.06;transition:opacity .18s ease var(--t,0s)}
+.on .stage svg .b{opacity:1}
+.spark .stage svg .b{animation:tw var(--d,2.4s) ease-in-out var(--dl,0s) infinite alternate}
+.tagx{position:absolute;left:4%;bottom:6%;z-index:3;background:#111111d9;border:1px solid var(--linha);padding:12px 16px 10px;max-width:78%;backdrop-filter:blur(6px)}
+.tagx .pc{position:absolute;right:-12px;top:-14px;background:var(--ouro);color:var(--preto);font:800 16px "League Spartan",sans-serif;padding:7px 10px 4px;border-radius:2px}
+.tagx h3{margin:0 0 2px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;line-height:1.2}
+.tagx .pr{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.tagx s{color:var(--mute);font-size:13px;white-space:nowrap}
+.tagx .num{font-size:26px;font-weight:700;color:var(--ouro2);white-space:nowrap}
+.dots{position:absolute;right:4%;bottom:7%;z-index:3;display:flex;gap:6px}
+.dots button{width:26px;height:26px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
+.dots button::after{content:"";width:7px;height:7px;border-radius:50%;background:#ffffff40;transition:.3s}
+.dots button[aria-current=true]::after{background:var(--quente);box-shadow:0 0 10px var(--quente)}
 
-/* bandas */
+.b{transform-box:fill-box;transform-origin:center}
+@keyframes tw{0%{opacity:.25}55%{opacity:1}100%{opacity:.6}}
+@keyframes tw2{0%,100%{opacity:1}50%{opacity:.3}}
+
+/* ===== CATÁLOGO ===== */
 .band{padding:clamp(48px,6vw,96px) 0}
-h2{font-weight:300;text-transform:uppercase;font-size:clamp(28px,3.6vw,44px);line-height:1.05;margin:0 0 10px;letter-spacing:.02em}
+h2{font-weight:300;text-transform:uppercase;font-size:clamp(28px,3.6vw,44px);line-height:1.05;margin:0 0 10px;letter-spacing:.05em}
 h2 b{font-weight:700}
 .lead{color:var(--mute);margin:0 0 30px;max-width:60ch}
 .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px}
-.filters button{min-height:44px;padding:0 18px;border:1px solid var(--line);background:transparent;color:var(--ink);font:400 14px "Lexend Exa",sans-serif;border-radius:2px;cursor:pointer}
-.filters button[aria-pressed=true]{border-color:var(--gold);color:#111;background:var(--gold)}
+.filters button{min-height:44px;padding:0 18px;border:1px solid var(--linha);background:transparent;color:var(--offwhite);font:500 14px Inter,sans-serif;border-radius:2px;cursor:pointer}
+.filters button[aria-pressed=true]{border-color:var(--ouro);color:var(--preto);background:var(--ouro)}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:18px}
-.card{position:relative;background:var(--g2);border:1px solid #ffffff10;display:flex;flex-direction:column;transition:.3s}
-.card:hover{border-color:var(--line);transform:translateY(-3px)}
-.ph{position:relative;aspect-ratio:1;background:radial-gradient(circle at 50% 40%,#2b2a28,#161616 70%);display:grid;place-items:center;overflow:hidden}
+.card{position:relative;background:var(--grafite);border:1px solid #ffffff10;display:flex;flex-direction:column;transition:.3s}
+.card:hover{border-color:var(--linha);transform:translateY(-3px)}
+.ph{position:relative;aspect-ratio:1;background:#161616;overflow:hidden}
 .ph img{width:100%;height:100%;object-fit:cover;display:block}
-.tag{position:absolute;top:12px;left:12px;background:var(--gold);color:#111;font:800 15px "League Spartan",sans-serif;padding:6px 10px 4px;border-radius:2px}
+.tag{position:absolute;top:12px;left:12px;background:var(--ouro);color:var(--preto);font:800 15px "League Spartan",sans-serif;padding:6px 10px 4px;border-radius:2px}
 .cb{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
-.cb h3{margin:0;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
+.cb h3{margin:0;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;line-height:1.2}
 .cod{font-size:12px;color:var(--mute)}
 .pr{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-top:4px}
 .pr s{color:var(--mute);font-size:13px;white-space:nowrap}
-.pr .num{font-size:28px;font-weight:700;color:var(--gold2);white-space:nowrap}
-.stock{font-size:12px;color:var(--warm);display:flex;align-items:center;gap:8px}
-.stock::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--warm);box-shadow:0 0 10px var(--warm);animation:tw2 1.6s infinite}
+.pr .num{font-size:28px;font-weight:700;color:var(--ouro2);white-space:nowrap}
+.stock{font-size:12px;color:var(--quente);display:flex;align-items:center;gap:8px}
+.stock::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--quente);box-shadow:0 0 10px var(--quente);animation:tw2 1.6s infinite}
 .card .add{margin-top:auto;padding-top:12px}
 .card .add .btn{width:100%;min-height:44px}
-.card.on{border-color:var(--gold)}
-.card.on .add .btn{background:transparent;color:var(--gold)}
+.card.on{border-color:var(--ouro)}
+.card.on .add .btn{background:transparent;color:var(--ouro)}
 .note{font-size:12px;color:var(--mute);margin-top:18px}
 
-/* formulário */
-.formband{background:linear-gradient(#111,#17160f 50%,#111);border-top:1px solid var(--line)}
+/* ===== FORM ===== */
+.formband{background:linear-gradient(var(--preto),#17160f 50%,var(--preto));border-top:1px solid var(--linha)}
 .fgrid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px;align-items:start}
-.sel{border:1px solid var(--line);padding:18px;margin-top:22px}
+.sel{border:1px solid var(--linha);padding:18px;margin-top:22px}
 .sel ul{list-style:none;margin:0;padding:0;font-size:14px}
 .sel li{display:flex;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px solid #ffffff10}
 .sel .tot{display:flex;justify-content:space-between;margin-top:12px;font-weight:600}
-.sel .tot .num{color:var(--gold2);font-size:24px}
+.sel .tot .num{color:var(--ouro2);font-size:24px}
 .sel .empty{color:var(--mute);font-size:14px;margin:0}
 form{display:grid;gap:14px}
 label{display:grid;gap:6px;font-size:13px;color:var(--mute)}
-input{min-height:48px;padding:0 14px;background:#1a1a1a;border:1px solid #ffffff1f;color:var(--ink);font:16px "Lexend Exa",sans-serif;border-radius:2px}
-input:focus{border-color:var(--gold)}
+input{min-height:48px;padding:0 14px;background:#1a1a1a;border:1px solid #ffffff1f;color:var(--offwhite);font:16px Inter,sans-serif;border-radius:2px}
+input:focus{border-color:var(--ouro)}
 .row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
 .conds{font-size:12px;color:var(--mute);margin:6px 0 0;line-height:1.6}
-
 footer{border-top:1px solid #ffffff10;padding:34px 0;color:var(--mute);font-size:12px}
 footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
-.preview{position:fixed;right:12px;bottom:12px;z-index:30;background:#000c;border:1px solid var(--line);color:var(--gold2);font-size:11px;padding:6px 10px;border-radius:2px}
 
-@media(max-width:860px){
-  .hgrid{grid-template-columns:minmax(0,1fr);padding-top:96px;text-align:left}
-  .treebox{order:-1;max-height:42svh;aspect-ratio:1/1;width:min(80%,360px);margin-top:-10px}
+@media(max-width:900px){
+  .hgrid{grid-template-columns:minmax(0,1fr);padding-top:104px;gap:0}
+  .hgrid>div:first-child{display:contents}
+  .kicker{order:1}h1{order:2}.upto{order:3}.mq{order:4}.stage{order:5;max-height:none;width:min(100%,520px);margin:-4px auto 8px}.hgrid>div:first-child>.fade:last-child{order:6}
   .fgrid{grid-template-columns:minmax(0,1fr);gap:28px}
 }
-@media(max-width:520px){.row2{grid-template-columns:minmax(0,1fr)}.count .num{font-size:32px}.top .btn{display:none}}
-@media(prefers-reduced-motion:reduce){.b,.star,.stock::before{animation:none!important;opacity:1}html{scroll-behavior:auto}}
+@media(max-width:520px){.row2{grid-template-columns:minmax(0,1fr)}.count .num{font-size:30px}.top .btn{display:none}.tagx{max-width:86%}.tagx .num{font-size:22px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
 <body>
@@ -129,22 +153,31 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 </header>
 
 <section class="hero" id="topo">
+  <div class="bokeh" id="bokeh" aria-hidden="true"></div>
   <canvas id="snow" aria-hidden="true"></canvas>
   <svg class="strand" id="strand" aria-hidden="true"></svg>
-  <div class="floor"></div>
   <div class="wrap hgrid">
     <div>
       <p class="kicker">Saldão de Natal · 07 a 26/12</p>
       <h1>Saldão de Natal <b>Stark Strong</b></h1>
-      <p class="sub">Até <span class="num">50% OFF</span> e à pronta entrega em produtos selecionados.</p>
-      <p class="fine">À vista no PIX · frete não incluso · até 26/12/2026 ou enquanto durar o estoque</p>
-      <div class="ctas">
-        <a class="btn" href="#produtos">Ver equipamentos</a>
-        <a class="btn ghost" href="#orcamento">Pedir orçamento</a>
+      <p class="upto fade">Até</p>
+      <svg class="mq" id="mq" role="img" aria-label="50% OFF"></svg>
+      <div class="fade">
+        <p class="sub">Em equipamentos selecionados, <b>à pronta entrega</b>. São 19 máquinas, com unidades contadas.</p>
+        <p class="fine">À vista no PIX · frete não incluso · até 26/12/2026 ou enquanto durar o estoque</p>
+        <div class="ctas">
+          <a class="btn" href="#produtos">Ver equipamentos</a>
+          <a class="btn ghost" href="#orcamento">Pedir orçamento</a>
+        </div>
+        <div class="count" id="count" aria-live="polite"></div>
       </div>
-      <div class="count" id="count" aria-live="polite"></div>
     </div>
-    <div class="treebox" aria-hidden="true"><svg id="tree"></svg></div>
+    <div class="stage" id="stage">
+      <div id="shots"></div>
+      <svg id="garland" aria-hidden="true"></svg>
+      <div class="tagx fade" id="tagx"></div>
+      <div class="dots fade" id="dots" role="group" aria-label="Escolher máquina em destaque"></div>
+    </div>
   </div>
 </section>
 
@@ -184,86 +217,16 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 </section>
 
 <footer><div class="wrap"><span>Stark Strong · Menos promessa. Mais performance.</span><span>Saldão de Natal 2026</span></div></footer>
-<div class="preview">Prévia · natal-26</div>
 
 <script>
 {
-const NS='http://www.w3.org/2000/svg';
+const IMG='../2026-11-black-stark/img/';
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const COLS=['#C7A56A','#FFE9C2','#E8D3A3','#FFF6E0'];
 const rnd=(a,b)=>a+Math.random()*(b-a);
+const hero=document.querySelector('.hero');
+const INTRO=1500; // ms até o fim do acendimento
 
-/* glow filter shared */
-function defs(svg){svg.innerHTML=`<defs><radialGradient id="gl${svg.id}"><stop offset="0" stop-color="#fff"/><stop offset=".35" stop-color="#FFE9C2"/><stop offset="1" stop-color="#C7A56A" stop-opacity="0"/></radialGradient></defs>`}
-function bulb(x,y,r,c,cls=''){
-  const d=rnd(1.4,3.6).toFixed(2),dl=(-rnd(0,4)).toFixed(2);
-  return `<g class="b ${cls}" style="--d:${d}s;--dl:${dl}s"><circle cx="${x}" cy="${y}" r="${r*3.4}" fill="${c}" opacity=".16"/><circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/></g>`;
-}
-
-/* árvore em espiral de luzes */
-const tree=document.getElementById('tree');
-function drawTree(){
-  const W=tree.clientWidth,H=tree.clientHeight;if(!W)return;
-  defs(tree);
-  const cx=W/2,top=H*.1,bot=H*.92,R=Math.min(W*.42,H*.36),N=Math.round(Math.min(150,W/2.6)),turns=6.5;
-  let back='',front='',wire='';
-  const pts=[];
-  for(let i=0;i<=N;i++){
-    const t=i/N,a=t*turns*Math.PI*2,r=R*t,x=cx+r*Math.cos(a),y=top+(bot-top)*t+r*.12*Math.sin(a),z=Math.sin(a);
-    pts.push([x,y]);
-    const s=(1.6+t*2.2)*(z>0?1:.7),c=COLS[i%4];
-    const b=bulb(x.toFixed(1),y.toFixed(1),s.toFixed(2),c);
-    if(z>0)front+=b;else back+=`<g opacity=".45">${b}</g>`;
-  }
-  wire=`<polyline points="${pts.map(p=>p.map(v=>v.toFixed(1)).join(',')).join(' ')}" fill="none" stroke="#C7A56A" stroke-opacity=".18" stroke-width="1"/>`;
-  const sr=Math.max(12,W*.045),sx=cx,sy=top-sr*.4;
-  let sp='';for(let k=0;k<10;k++){const a=-Math.PI/2+k*Math.PI/5,rr=k%2?sr*.42:sr;sp+=`${(sx+rr*Math.cos(a)).toFixed(1)},${(sy+rr*Math.sin(a)).toFixed(1)} `}
-  const base=`<ellipse cx="${cx}" cy="${bot+H*.03}" rx="${R*1.1}" ry="${H*.025}" fill="#C7A56A" opacity=".12"/>`;
-  tree.innerHTML+=base+back+wire+front+`<g class="star"><circle cx="${sx}" cy="${sy}" r="${sr*2.4}" fill="url(#gltree)" opacity=".5"/><polygon points="${sp}" fill="#E8D3A3"/></g>`;
-}
-
-/* varal de pisca-pisca no topo */
-const strand=document.getElementById('strand');
-function drawStrand(){
-  const W=strand.clientWidth;if(!W)return;
-  defs(strand);
-  const seg=W<600?2:3,sw=W/seg;let out='';
-  for(let s=0;s<seg;s++){
-    const x0=s*sw,x1=x0+sw,sag=W<600?46:70,y0=58;
-    const path=`M${x0},${y0} Q${x0+sw/2},${y0+sag*2} ${x1},${y0}`;
-    out+=`<path d="${path}" fill="none" stroke="#3a352c" stroke-width="1.4"/>`;
-    const n=W<600?9:12;
-    for(let i=1;i<n;i++){
-      const t=i/n,x=(1-t)*(1-t)*x0+2*(1-t)*t*(x0+sw/2)+t*t*x1,y=(1-t)*(1-t)*y0+2*(1-t)*t*(y0+sag*2)+t*t*y0;
-      out+=`<line x1="${x}" y1="${y}" x2="${x}" y2="${y+7}" stroke="#3a352c" stroke-width="2"/>`+bulb(x.toFixed(1),(y+11).toFixed(1),4,COLS[(i+s)%4],'chase');
-    }
-  }
-  strand.innerHTML+=out;
-}
-const roT=new ResizeObserver(drawTree);roT.observe(tree);
-const roS=new ResizeObserver(drawStrand);roS.observe(strand);
-
-/* neve / partículas douradas */
-const cv=document.getElementById('snow'),cx2=cv.getContext('2d');let flakes=[];
-function sizeSnow(){const r=devicePixelRatio||1;cv.width=cv.clientWidth*r;cv.height=cv.clientHeight*r;cx2.setTransform(r,0,0,r,0,0);
-  const n=Math.round(cv.clientWidth/14);flakes=Array.from({length:n},()=>({x:rnd(0,cv.clientWidth),y:rnd(0,cv.clientHeight),r:rnd(.6,2.2),v:rnd(.15,.6),w:rnd(0,6.28),o:rnd(.15,.6)}))}
-function tick(){const W=cv.clientWidth,H=cv.clientHeight;cx2.clearRect(0,0,W,H);
-  for(const f of flakes){f.y+=f.v;f.w+=.01;f.x+=Math.sin(f.w)*.3;if(f.y>H){f.y=-4;f.x=rnd(0,W)}
-    cx2.beginPath();cx2.arc(f.x,f.y,f.r,0,6.28);cx2.fillStyle=`rgba(243,233,210,${f.o})`;cx2.fill()}
-  if(!reduce)requestAnimationFrame(tick)}
-const roC=new ResizeObserver(sizeSnow);roC.observe(cv);requestAnimationFrame(tick);
-
-/* contagem */
-const START=new Date('2026-12-07T00:00:00-03:00'),END=new Date('2026-12-26T23:59:59-03:00');
-const cnt=document.getElementById('count');
-function count(){const now=new Date();let target,label;
-  if(now<START){target=START;label='Começa em'}else if(now<END){target=END;label='Termina em'}else{cnt.innerHTML='<p>Saldão encerrado</p>';return}
-  let s=Math.max(0,Math.floor((target-now)/1000));const d=Math.floor(s/86400);s%=86400;const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);
-  cnt.innerHTML=`<p>${label}</p>`+[[d,'dias'],[h,'horas'],[m,'min']].map(([v,l])=>`<div><span class="num">${String(v).padStart(2,'0')}</span><span>${l}</span></div>`).join('')}
-count();setInterval(count,30000);
-
-/* produtos (exemplo) */
-const IMG='../2026-11-black-stark/img/';
 // [codigo, nome, preço de tabela, desconto %, unidades] — estoque ainda é o da Black: atualizar
 const P=[
   [9003,'Abdutora com carga',28635,50,6],
@@ -286,15 +249,128 @@ const P=[
   [9058,'Supino inclinado articulado com pé de arranque',19205,40,3],
   [9100,'Supino inclinado articulado',20585,40,3]
 ].map(r=>({c:String(r[0]),n:r[1],p:r[2],o:r[3],e:r[4]}));
+const por=x=>Math.round(x.p*(100-x.o))/100;
 const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:v%1?2:0,maximumFractionDigits:2});
-const icon=`<svg viewBox="0 0 100 100" fill="none" stroke="#C7A56A" stroke-width="2.5"><path d="M18 88h64M28 88V20h10v68M62 88V34h10v54M38 30h24M38 62h24"/><rect x="44" y="40" width="12" height="16"/></svg>`;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
+
+/* lâmpada: halo + bulbo; --t = atraso do acendimento */
+function bulb(x,y,r,c,t,cls){
+  const d=rnd(1.4,3.4).toFixed(2),dl=(-rnd(0,4)).toFixed(2);
+  return `<g class="b ${cls||''}" style="--t:${t.toFixed(3)}s;--d:${d}s;--dl:${dl}s"><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(r*3).toFixed(2)}" fill="${c}" opacity=".14"/><circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${r.toFixed(2)}" fill="${c}"/></g>`;
+}
+const qb=(t,a,b,c)=>(1-t)*(1-t)*a+2*(1-t)*t*b+t*t*c;
+
+/* varal no topo da página */
+const strand=document.getElementById('strand');
+function drawStrand(){
+  const W=strand.clientWidth;if(!W)return;
+  const seg=W<600?2:3,sw=W/seg,sag=W<600?16:62,y0=W<600?46:54,n=W<600?8:12;let out='';
+  for(let s=0;s<seg;s++){
+    const x0=s*sw,x1=x0+sw,cx=x0+sw/2,cy=y0+sag*2;
+    out+=`<path d="M${x0},${y0} Q${cx},${cy} ${x1},${y0}" fill="none" stroke="#3a352c" stroke-width="1.4"/>`;
+    for(let i=1;i<n;i++){const t=i/n,x=qb(t,x0,cx,x1),y=qb(t,y0,cy,y0);
+      out+=`<line x1="${x}" y1="${y}" x2="${x}" y2="${y+7}" stroke="#3a352c" stroke-width="2"/>`+bulb(x,y+11,4,COLS[(i+s)%4],x/W*INTRO/1000*.8,'')}
+  }
+  strand.innerHTML=out;
+}
+
+/* letreiro "50% OFF" em lâmpadas */
+const mq=document.getElementById('mq');
+function drawMarquee(){
+  const host=mq.parentElement.clientWidth?mq.parentElement:mq.closest('.hgrid'),cs=getComputedStyle(host);
+  const W=host.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);if(W<=0)return;
+  const txt='50% OFF',rows=15;
+  const c=document.createElement('canvas'),g=c.getContext('2d');
+  g.font=`800 ${rows*1.32}px "League Spartan", sans-serif`;
+  const cols=Math.ceil(g.measureText(txt).width)+2;
+  c.width=cols;c.height=rows+2;
+  g.font=`800 ${rows*1.32}px "League Spartan", sans-serif`;g.textBaseline='alphabetic';g.fillStyle='#fff';
+  g.fillText(txt,1,rows+1);
+  const px=g.getImageData(0,0,cols,rows+2).data;
+  const pitch=Math.min(W/cols,W<520?7.2:11),r=pitch*.36,H=(rows+2)*pitch;
+  let out='';
+  for(let y=0;y<rows+2;y++)for(let x=0;x<cols;x++){
+    if(px[(y*cols+x)*4+3]>110){
+      const s=Math.random()<.18;
+      out+=bulb(x*pitch+pitch/2,y*pitch+pitch/2,r,s?'#FFF6E0':'#FFE9C2',.35+x/cols*.9,s?'s':'');
+    }
+  }
+  mq.setAttribute('viewBox',`0 0 ${cols*pitch} ${H}`);
+  mq.style.maxWidth=cols*pitch+'px';
+  mq.innerHTML=`<defs><filter id="glow" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="${(pitch*.5).toFixed(1)}" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#glow)">${out}</g>`;
+}
+
+/* pisca-pisca na frente da máquina */
+const gar=document.getElementById('garland');
+function drawGarland(){
+  const W=gar.clientWidth,H=gar.clientHeight;if(!W)return;
+  const lines=[[-.04,.16,.5,.46,1.04,.22],[-.04,.5,.45,.86,1.04,.58]];let out='';
+  lines.forEach((l,k)=>{
+    const [ax,ay,bx,by,cx,cy]=[l[0]*W,l[1]*H,l[2]*W,l[3]*H,l[4]*W,l[5]*H];
+    out+=`<path d="M${ax},${ay} Q${bx},${by} ${cx},${cy}" fill="none" stroke="#2c2820" stroke-width="1.6" opacity=".9"/>`;
+    const n=Math.round(W/34);
+    for(let i=1;i<n;i++){const t=i/n;out+=bulb(qb(t,ax,bx,cx),qb(t,ay,by,cy)+5,Math.max(3,W/150),COLS[(i+k)%4],.2+t*1.1+k*.15,'')}
+  });
+  gar.innerHTML=out;
+}
+
+/* bokeh de fundo */
+const bk=document.getElementById('bokeh');
+bk.innerHTML=Array.from({length:16},(_,i)=>{const s=rnd(30,120);return `<i style="left:${rnd(40,98).toFixed(1)}%;top:${rnd(8,92).toFixed(1)}%;width:${s}px;height:${s}px;--o:${rnd(.15,.5).toFixed(2)};--t:${(.6+i*.06).toFixed(2)}s"></i>`}).join('');
+
+/* máquinas em destaque (50% OFF) */
+const FEAT=P.filter(x=>x.o===50);
+const shots=document.getElementById('shots'),tagx=document.getElementById('tagx'),dots=document.getElementById('dots');
+shots.innerHTML=FEAT.map((x,i)=>`<figure class="shot${i?'':' cur'}"><img src="${IMG}${x.c}.jpg" alt="${esc(x.n)}" width="1000" height="1000"${i?' loading="lazy"':' fetchpriority="high"'}></figure>`).join('');
+dots.innerHTML=FEAT.map((x,i)=>`<button type="button" aria-label="${esc(x.n)}" aria-current="${!i}"></button>`).join('');
+let cur=0,timer;
+function show(i){
+  cur=(i+FEAT.length)%FEAT.length;const x=FEAT[cur];
+  shots.querySelectorAll('.shot').forEach((s,k)=>s.classList.toggle('cur',k===cur));
+  dots.querySelectorAll('button').forEach((b,k)=>b.setAttribute('aria-current',k===cur));
+  tagx.innerHTML=`<span class="pc">-${x.o}%</span><h3>${esc(x.n)}</h3><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(por(x))}</span></div>`;
+}
+function auto(){clearInterval(timer);if(!reduce)timer=setInterval(()=>show(cur+1),4500)}
+dots.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;show([...dots.children].indexOf(b));auto()});
+show(0);
+
+/* desenha e reage ao tamanho */
+const roS=new ResizeObserver(drawStrand);roS.observe(strand);
+const roG=new ResizeObserver(drawGarland);roG.observe(gar);
+const roM=new ResizeObserver(drawMarquee);roM.observe(document.querySelector('.hgrid'));
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawMarquee);
+
+/* acende tudo */
+function lightUp(){hero.classList.add('on');setTimeout(()=>{hero.classList.add('spark');auto()},reduce?0:INTRO+1200)}
+if(reduce)lightUp();else setTimeout(lightUp,350);
+
+/* neve fina */
+const cv=document.getElementById('snow'),cx2=cv.getContext('2d');let flakes=[];
+function sizeSnow(){const r=devicePixelRatio||1;cv.width=cv.clientWidth*r;cv.height=cv.clientHeight*r;cx2.setTransform(r,0,0,r,0,0);
+  flakes=Array.from({length:Math.round(cv.clientWidth/16)},()=>({x:rnd(0,cv.clientWidth),y:rnd(0,cv.clientHeight),r:rnd(.6,2),v:rnd(.15,.55),w:rnd(0,6.28),o:rnd(.12,.5)}))}
+function tick(){const W=cv.clientWidth,H=cv.clientHeight;cx2.clearRect(0,0,W,H);
+  for(const f of flakes){f.y+=f.v;f.w+=.01;f.x+=Math.sin(f.w)*.3;if(f.y>H){f.y=-4;f.x=rnd(0,W)}
+    cx2.beginPath();cx2.arc(f.x,f.y,f.r,0,6.28);cx2.fillStyle=`rgba(243,233,210,${f.o})`;cx2.fill()}
+  if(!reduce)requestAnimationFrame(tick)}
+const roC=new ResizeObserver(sizeSnow);roC.observe(cv);requestAnimationFrame(tick);
+
+/* contagem */
+const START=new Date('2026-12-07T00:00:00-03:00'),END=new Date('2026-12-26T23:59:59-03:00');
+const cnt=document.getElementById('count');
+function count(){const now=new Date();let target,label;
+  if(now<START){target=START;label='Começa em'}else if(now<END){target=END;label='Termina em'}else{cnt.innerHTML='<p>Saldão encerrado</p>';return}
+  let s=Math.max(0,Math.floor((target-now)/1000));const d=Math.floor(s/86400);s%=86400;const h=Math.floor(s/3600);s%=3600;const m=Math.floor(s/60);
+  cnt.innerHTML=`<p>${label}</p>`+[[d,'dias'],[h,'horas'],[m,'min']].map(([v,l])=>`<div><span class="num">${String(v).padStart(2,'0')}</span><span>${l}</span></div>`).join('')}
+count();setInterval(count,30000);
+
+/* catálogo + orçamento */
 const sel=new Set();let filt='all';
 const grid=document.getElementById('grid');
 function render(){
-  grid.innerHTML=P.filter(x=>filt==='all'||String(x.o)===filt).map(x=>{const v=x.p*(1-x.o/100),on=sel.has(x.c);
-    return `<article class="card${on?' on':''}"><div class="ph"><img loading="lazy" src="${IMG}${x.c}.jpg" alt="${x.n}" width="600" height="600"><span class="tag">${x.o}% OFF</span></div><div class="cb"><h3>${x.n}</h3><span class="cod">Cód. ${x.c}</span><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(v)}</span></div><span class="stock">Só ${x.e} ${x.e>1?'unidades':'unidade'} em estoque</span><div class="add"><button class="btn" type="button" data-c="${x.c}">${on?'Remover do orçamento':'Adicionar ao orçamento'}</button></div></div></article>`}).join('');
-  const items=P.filter(x=>sel.has(x.c)),tot=items.reduce((a,x)=>a+x.p*(1-x.o/100),0);
-  document.getElementById('sel').innerHTML=items.length?`<ul>${items.map(x=>`<li><span>${x.n} · ${x.c}</span><span class="num">${brl(x.p*(1-x.o/100))}</span></li>`).join('')}</ul><div class="tot"><span>Total no PIX</span><span class="num">${brl(tot)}</span></div>`:'<p class="empty">Nenhum equipamento selecionado ainda.</p>';
+  grid.innerHTML=P.filter(x=>filt==='all'||String(x.o)===filt).map(x=>{const on=sel.has(x.c);
+    return `<article class="card${on?' on':''}"><div class="ph"><img loading="lazy" src="${IMG}${x.c}.jpg" alt="${esc(x.n)}" width="1000" height="1000"><span class="tag">${x.o}% OFF</span></div><div class="cb"><h3>${esc(x.n)}</h3><span class="cod">Cód. ${x.c}</span><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(por(x))}</span></div><span class="stock">Só ${x.e} ${x.e>1?'unidades':'unidade'} em estoque</span><div class="add"><button class="btn" type="button" data-c="${x.c}">${on?'Remover do orçamento':'Adicionar ao orçamento'}</button></div></div></article>`}).join('');
+  const items=P.filter(x=>sel.has(x.c)),tot=items.reduce((a,x)=>a+por(x),0);
+  document.getElementById('sel').innerHTML=items.length?`<ul>${items.map(x=>`<li><span>${esc(x.n)} · ${x.c}</span><span class="num">${brl(por(x))}</span></li>`).join('')}</ul><div class="tot"><span>Total no PIX</span><span class="num">${brl(tot)}</span></div>`:'<p class="empty">Nenhum equipamento selecionado ainda.</p>';
 }
 grid.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const c=b.dataset.c;
   if(sel.has(c))sel.delete(c);else{sel.add(c);(window.dataLayer=window.dataLayer||[]).push({event:'add_to_orcamento',produto:c,categoria:'natal-26',codigo:c})}render()});
