@@ -76,7 +76,7 @@ h2 b{font-weight:700}
 .card{position:relative;background:var(--g2);border:1px solid #ffffff10;display:flex;flex-direction:column;transition:.3s}
 .card:hover{border-color:var(--line);transform:translateY(-3px)}
 .ph{position:relative;aspect-ratio:1;background:radial-gradient(circle at 50% 40%,#2b2a28,#161616 70%);display:grid;place-items:center;overflow:hidden}
-.ph svg{width:52%;opacity:.55}
+.ph img{width:100%;height:100%;object-fit:cover;display:block}
 .tag{position:absolute;top:12px;left:12px;background:var(--gold);color:#111;font:800 15px "League Spartan",sans-serif;padding:6px 10px 4px;border-radius:2px}
 .cb{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
 .cb h3{margin:0;font-size:15px;font-weight:600;text-transform:uppercase;letter-spacing:.03em}
@@ -158,7 +158,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <button type="button" data-f="40" aria-pressed="false">40% OFF</button>
     </div>
     <div class="grid" id="grid"></div>
-    <p class="note">Prévia de layout: nomes, fotos, preços e estoques são de exemplo e entram do HTML da Black + estoque atualizado.</p>
+    <p class="note">Prévia: produtos e preços da Black; estoque ainda não atualizado.</p>
   </div>
 </section>
 
@@ -263,23 +263,36 @@ function count(){const now=new Date();let target,label;
 count();setInterval(count,30000);
 
 /* produtos (exemplo) */
+const IMG='../2026-11-black-stark/img/';
+// [codigo, nome, preço de tabela, desconto %, unidades] — estoque ainda é o da Black: atualizar
 const P=[
-  {c:'9003',n:'Equipamento 9003',p:18900,o:50,e:2},
-  {c:'9091',n:'Equipamento 9091',p:16400,o:50,e:1},
-  {c:'9004',n:'Equipamento 9004',p:21500,o:50,e:3},
-  {c:'9005',n:'Equipamento 9005',p:19800,o:50,e:2},
-  {c:'9039',n:'Equipamento 9039',p:14700,o:50,e:1},
-  {c:'9012',n:'Equipamento 9012',p:17300,o:40,e:2},
-  {c:'9020',n:'Equipamento 9020',p:15900,o:40,e:4},
-  {c:'9047',n:'Equipamento 9047',p:22600,o:40,e:1}
-];
-const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',maximumFractionDigits:0});
+  [9003,'Abdutora com carga',28635,50,6],
+  [9091,'Extensora com carga eixo central',27370,50,3],
+  [9004,'Puxador alto polia dupla',27485,50,6],
+  [9005,'Remada baixa com carga polia dupla',25070,50,5],
+  [9039,'Flexora em pé com carga',27370,50,3],
+  [9061,'Adutora com carga',28635,40,3],
+  [9088,'Banco para remada curvada',7820,40,5],
+  [9069,'Hack de agachamento apoio lombar com guias lineares',25185,40,3],
+  [9057,'Polia simples guia linear',15900,40,3],
+  [9227,'Puxador alto polia central',25760,40,3],
+  [9113,'Puxador alto frontal articulado',20240,40,3],
+  [9121,'Remada articulada low row',21390,40,3],
+  [9205,'V Squat',22770,40,3],
+  [9006,'Tríceps articulado com cinta',19320,40,3],
+  [9114,'Remada sentada articulada',20010,40,3],
+  [9086,'Supino declinado articulado',20585,40,3],
+  [9116,'Supino e desenvolvimento de ombros com carga',28635,40,3],
+  [9058,'Supino inclinado articulado com pé de arranque',19205,40,3],
+  [9100,'Supino inclinado articulado',20585,40,3]
+].map(r=>({c:String(r[0]),n:r[1],p:r[2],o:r[3],e:r[4]}));
+const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:v%1?2:0,maximumFractionDigits:2});
 const icon=`<svg viewBox="0 0 100 100" fill="none" stroke="#C7A56A" stroke-width="2.5"><path d="M18 88h64M28 88V20h10v68M62 88V34h10v54M38 30h24M38 62h24"/><rect x="44" y="40" width="12" height="16"/></svg>`;
 const sel=new Set();let filt='all';
 const grid=document.getElementById('grid');
 function render(){
   grid.innerHTML=P.filter(x=>filt==='all'||String(x.o)===filt).map(x=>{const v=x.p*(1-x.o/100),on=sel.has(x.c);
-    return `<article class="card${on?' on':''}"><div class="ph">${icon}<span class="tag">${x.o}% OFF</span></div><div class="cb"><h3>${x.n}</h3><span class="cod">Cód. ${x.c}</span><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(v)}</span></div><span class="stock">Só ${x.e} ${x.e>1?'unidades':'unidade'} em estoque</span><div class="add"><button class="btn" type="button" data-c="${x.c}">${on?'Remover do orçamento':'Adicionar ao orçamento'}</button></div></div></article>`}).join('');
+    return `<article class="card${on?' on':''}"><div class="ph"><img loading="lazy" src="${IMG}${x.c}.jpg" alt="${x.n}" width="600" height="600"><span class="tag">${x.o}% OFF</span></div><div class="cb"><h3>${x.n}</h3><span class="cod">Cód. ${x.c}</span><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(v)}</span></div><span class="stock">Só ${x.e} ${x.e>1?'unidades':'unidade'} em estoque</span><div class="add"><button class="btn" type="button" data-c="${x.c}">${on?'Remover do orçamento':'Adicionar ao orçamento'}</button></div></div></article>`}).join('');
   const items=P.filter(x=>sel.has(x.c)),tot=items.reduce((a,x)=>a+x.p*(1-x.o/100),0);
   document.getElementById('sel').innerHTML=items.length?`<ul>${items.map(x=>`<li><span>${x.n} · ${x.c}</span><span class="num">${brl(x.p*(1-x.o/100))}</span></li>`).join('')}</ul><div class="tot"><span>Total no PIX</span><span class="num">${brl(tot)}</span></div>`:'<p class="empty">Nenhum equipamento selecionado ainda.</p>';
 }

@@ -25,7 +25,8 @@ Ainda sem GTM, sem captura de UTM e sem eventos de envio do formulário (a Black
 
 ## Pendências
 
-- [ ] Trocar os 8 produtos de exemplo pelos reais (nomes, fotos, preços, descontos), vindos da Black + estoque atualizado
+- [x] Produtos reais da Black (19 itens: nomes, fotos, preços, descontos) — fotos lidas de `../2026-11-black-stark/img/`
+- [ ] Atualizar o estoque por produto (hoje ainda é o da Black)
 - [ ] Estoque por produto confirmado com o comercial (a página mostra "Só X unidades")
 - [ ] Ligar o envio do formulário ao WhatsApp comercial (hoje o botão só mostra "Prévia: aqui abre o WhatsApp")
 - [ ] Adicionar GTM `GTM-N8D9H6CS`, UTMs (`ss_utms`) e eventos `formulario_enviado` / `orcamento_enviado`
