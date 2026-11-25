@@ -65,8 +65,9 @@ h1 b{font-weight:700}
 .fade{opacity:0;transform:translateY(8px);transition:opacity .6s ease 1.9s,transform .6s ease 1.9s}
 .on .fade{opacity:1;transform:none}
 
-.stage{position:relative;aspect-ratio:1;width:100%;max-height:80svh;justify-self:center}
-.stage .shot{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1s ease;-webkit-mask-image:radial-gradient(closest-side,#000 48%,transparent 100%);mask-image:radial-gradient(closest-side,#000 48%,transparent 100%)}
+.stage{position:relative;width:100%;max-width:min(100%,74svh);justify-self:center}
+.pic{position:relative;aspect-ratio:1;width:100%}
+.stage .shot{position:absolute;inset:0;margin:0;opacity:0;transition:opacity 1s ease;-webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 7%,#000 93%,transparent);-webkit-mask-composite:source-in;mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent),linear-gradient(transparent,#000 7%,#000 93%,transparent);mask-composite:intersect}
 .stage .shot.cur{opacity:1}
 .stage img{width:100%;height:100%;object-fit:cover;display:block;filter:brightness(.15);transition:filter 1.2s ease .3s}
 .on .stage img{filter:brightness(1)}
@@ -74,13 +75,14 @@ h1 b{font-weight:700}
 .stage svg .b{opacity:.06;transition:opacity .18s ease var(--t,0s)}
 .on .stage svg .b{opacity:1}
 .spark .stage svg .b{animation:tw var(--d,2.4s) ease-in-out var(--dl,0s) infinite alternate}
-.tagx{position:absolute;left:4%;bottom:6%;z-index:3;background:#111111d9;border:1px solid var(--linha);padding:12px 16px 10px;max-width:78%;backdrop-filter:blur(6px)}
+.meta{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:-2%;position:relative;z-index:3}
+.tagx{position:relative;background:#111111d9;border:1px solid var(--linha);padding:12px 16px 10px;min-width:0}
 .tagx .pc{position:absolute;right:-12px;top:-14px;background:var(--ouro);color:var(--preto);font:800 16px "League Spartan",sans-serif;padding:7px 10px 4px;border-radius:2px}
 .tagx h3{margin:0 0 2px;font-size:15px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;line-height:1.2}
 .tagx .pr{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
 .tagx s{color:var(--mute);font-size:13px;white-space:nowrap}
 .tagx .num{font-size:26px;font-weight:700;color:var(--ouro2);white-space:nowrap}
-.dots{position:absolute;right:4%;bottom:7%;z-index:3;display:flex;gap:6px}
+.dots{display:flex;gap:2px;flex:none}
 .dots button{width:26px;height:26px;padding:0;border:0;background:none;cursor:pointer;display:grid;place-items:center}
 .dots button::after{content:"";width:7px;height:7px;border-radius:50%;background:#ffffff40;transition:.3s}
 .dots button[aria-current=true]::after{background:var(--quente);box-shadow:0 0 10px var(--quente)}
@@ -138,10 +140,10 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 @media(max-width:900px){
   .hgrid{grid-template-columns:minmax(0,1fr);padding-top:104px;gap:0}
   .hgrid>div:first-child{display:contents}
-  .kicker{order:1}h1{order:2}.upto{order:3}.mq{order:4}.stage{order:5;max-height:none;width:min(100%,520px);margin:-4px auto 8px}.hgrid>div:first-child>.fade:last-child{order:6}
+  .kicker{order:1}h1{order:2}.upto{order:3}.mq{order:4}.stage{order:5;max-width:min(100%,520px);margin:-4px auto 22px}.hgrid>div:first-child>.fade:last-child{order:6}
   .fgrid{grid-template-columns:minmax(0,1fr);gap:28px}
 }
-@media(max-width:520px){.row2{grid-template-columns:minmax(0,1fr)}.count .num{font-size:30px}.top .btn{display:none}.tagx{max-width:86%}.tagx .num{font-size:22px}}
+@media(max-width:520px){.row2{grid-template-columns:minmax(0,1fr)}.count .num{font-size:30px}.top .btn{display:none}.tagx .num{font-size:22px}.meta{flex-direction:column;align-items:stretch}.dots{justify-content:center}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}html{scroll-behavior:auto}}
 </style>
 </head>
@@ -173,10 +175,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       </div>
     </div>
     <div class="stage" id="stage">
-      <div id="shots"></div>
-      <svg id="garland" aria-hidden="true"></svg>
-      <div class="tagx fade" id="tagx"></div>
-      <div class="dots fade" id="dots" role="group" aria-label="Escolher máquina em destaque"></div>
+      <div class="pic"><div id="shots"></div><svg id="garland" aria-hidden="true"></svg></div>
+      <div class="meta fade"><div class="tagx" id="tagx"></div><div class="dots" id="dots" role="group" aria-label="Escolher máquina em destaque"></div></div>
     </div>
   </div>
 </section>
