@@ -12,7 +12,7 @@ LP de queima de estoque (Black Friday) com equipamentos geração 5 à pronta en
 | Validade | Até 30/11/2026 ou enquanto durar o estoque |
 | CTA | Monta a seleção → formulário → abre o WhatsApp comercial com a seleção pronta |
 | WhatsApp | `5545999265525` (variável `WHATS` no `index.html`) |
-| URL | https://starkstrong.com.br/campanha/2026-11-black-stark/ (canonical da página; o /black-26 redireciona para cá) |
+| URL | https://starkstrong.com.br/campanha/black-26/ (canonical da página; o /black-26 redireciona para cá) |
 | Plataforma | HTML estático (escopo `.bk` para embutir na plataforma do site) |
 | Prévia | https://l9films.github.io/lps_stark_strong/ (GitHub Pages, atualiza a cada push no `main`) |
 | Status | em revisão |
@@ -40,7 +40,7 @@ UTMs (`utm_source`, `utm_medium`, `utm_campaign`, `utm_id`, `utm_term`) são gua
 - [ ] `copy.md` com os textos aprovados (quem aprovou e quando)
 - [ ] Preços "de" e descontos conferidos com o comercial (lastro para o "até 50% OFF", CDC/CONAR)
 - [ ] Unidades em estoque confirmadas (`SHOW_QTY = true` está marcado como "aguardando confirmação do estoque")
-- [x] `og:image` corrigido: aponta para https://starkstrong.com.br/campanha/2026-11-black-stark/img/9003.jpg
+- [x] `og:image` corrigido: aponta para https://starkstrong.com.br/campanha/black-26/img/9003.jpg
 - [ ] Formulário sem aviso de LGPD e pedindo e-mail como obrigatório (padrão: nome, academia, cidade, WhatsApp)
 - [ ] Fontes usadas são Barlow e Lexend Exa; o padrão da marca é League Spartan (títulos) + Inter (texto)
 - [ ] Há hex soltos no CSS (`#0c0c0c`, `#cfcbc3` etc.) fora das variáveis
