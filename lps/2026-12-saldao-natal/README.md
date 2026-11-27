@@ -41,3 +41,12 @@ Ainda sem GTM, sem captura de UTM e sem eventos de envio do formulário (a Black
 - Da Black, saíram todos os equipamentos com bateria de peso (9003, 9091, 9004, 9005, 9039, 9061, 9057, 9227, 9116).
 - Entraram do inventário (proposta Bling nº 7461): 9030 Remada cavalinho (R$ 7.945), 9002 Smith guiado (R$ 19.860), 9062 Suporte búlgaro (R$ 1.890); 9114 Remada sentada articulada passou a R$ 9.950.
 - Total: 13 equipamentos. Fotos em `img/` (as 3 novas recortadas do PDF e montadas no fundo de concreto padrão). Estoque ainda a atualizar.
+
+## WhatsApp, rastreamento e esgotados (27/11/2026)
+- Botão "Enviar pelo WhatsApp" abre wa.me/5545999265525 com a seleção, total no PIX e dados do formulário.
+- A primeira linha da mensagem traz **"Natal 2026"**: é a palavra-chave do Salesbot do Kommo para aplicar a etiqueta "Campanha Natal" (independe do nome final da campanha).
+- GTM-N8D9H6CS no head + noscript (mesmo container da Black). UTMs em localStorage `ss_utms` (last-touch).
+- dataLayer: `add_to_orcamento` (produto, categoria `natal-26`, codigo), `formulario_enviado` (form_id `natal-26`) e `orcamento_enviado` (origem, itens, valor, moeda BRL + UTMs).
+- canonical/og apontam para https://starkstrong.com.br/campanha/natal-26/ — a pasta desta LP deve ser servida nesse caminho (`img/` relativo).
+- Estoque 0 no array `P` = card fica na página como **ESGOTADO** (foto em cinza, botão desativado). O letreiro "Até X% OFF" e as máquinas do hero usam só o que tem estoque.
+- [ ] Remover o `noindex` quando o nome da campanha for definido.

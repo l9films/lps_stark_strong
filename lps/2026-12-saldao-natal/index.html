@@ -2,16 +2,32 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-N8D9H6CS');</script>
+<!-- End Google Tag Manager -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Saldão de Natal Stark Strong</title>
-<!-- Prévia: remover o noindex quando o estoque atualizado entrar -->
+<!-- Prévia: remover o noindex quando o nome da campanha for definido e a LP for ao ar -->
 <meta name="robots" content="noindex">
 <link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
 <meta name="description" content="Saldão de Natal Stark Strong: até 50% OFF em equipamentos de academia à pronta entrega. De 07/12 a 26/12/2026 ou enquanto durar o estoque.">
+<link rel="canonical" href="https://starkstrong.com.br/campanha/natal-26/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Stark Strong">
+<meta property="og:title" content="Natal Stark Strong · Até 50% OFF à pronta entrega">
+<meta property="og:description" content="Equipamentos de academia à pronta entrega com até 50% OFF no PIX. Monte sua seleção e fale com o time no WhatsApp.">
+<meta property="og:image" content="https://starkstrong.com.br/campanha/natal-26/img/9114.jpg">
+<meta property="og:url" content="https://starkstrong.com.br/campanha/natal-26/">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="img/9003.jpg">
+<link rel="preload" as="image" href="img/9114.jpg">
 <style>
 /* VOICE: premium, noite de Natal numa academia escura; sem vermelho/verde
    IDEA: vitrine à noite com letreiro de lâmpadas e máquina enfeitada com pisca-pisca
@@ -120,6 +136,14 @@ h2 b{font-weight:700}
 .card.on{border-color:var(--ouro)}
 .card.on .add .btn{background:transparent;color:var(--ouro)}
 .note{font-size:12px;color:var(--mute);margin-top:18px}
+.card.out .ph img{filter:grayscale(1) brightness(.45)}
+.card.out .tag{background:var(--offwhite);color:var(--preto)}
+.card.out .pr .num,.card.out .pr s{opacity:.45}
+.card.out .stock{color:var(--mute)}.card.out .stock::before{background:var(--mute);box-shadow:none;animation:none}
+.card.out .add .btn{background:transparent;border-color:#ffffff26;color:var(--mute);cursor:not-allowed}
+.card.out:hover{transform:none;border-color:#ffffff10}
+.msg{min-height:20px;margin:0;font-size:13px;color:var(--quente)}
+.lgpd{font-size:11px;color:var(--mute);margin:0}
 
 /* ===== FORM ===== */
 .formband{background:linear-gradient(var(--preto),#17160f 50%,var(--preto));border-top:1px solid var(--linha)}
@@ -154,6 +178,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 </style>
 </head>
 <body>
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-N8D9H6CS" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header class="top">
   <a class="logo" href="#topo">Stark Strong<small>Saldão de Natal</small></a>
@@ -203,15 +228,17 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <p class="lead">Preencha os dados e a gente continua o atendimento pelo WhatsApp, com os preços confirmados pelo vendedor.</p>
       <div class="sel" id="sel"></div>
     </div>
-    <form id="form" novalidate>
+    <form id="form">
       <label>Nome<input id="f-nome" name="nome" autocomplete="name" required></label>
-      <label>Academia<input id="f-acad" name="academia" required></label>
+      <label>Academia<input id="f-acad" name="academia"></label>
       <div class="row2">
-        <label>Cidade/UF<input id="f-cid" name="cidade" required></label>
+        <label>Cidade/UF<input id="f-cid" name="cidade" autocomplete="address-level2" required></label>
         <label>WhatsApp<input id="f-whats" name="whatsapp" inputmode="tel" autocomplete="tel" required></label>
       </div>
       <label>E-mail<input id="f-mail" name="email" type="email" autocomplete="email" required></label>
+      <p class="msg" id="msg" role="alert"></p>
       <button class="btn" type="submit">Enviar pelo WhatsApp</button>
+      <p class="lgpd">Seus dados são usados só para este atendimento, conforme a LGPD.</p>
       <p class="conds">Pagamento à vista no PIX, sem parcelamento. Frete não incluso. Válido de 07/12 a 26/12/2026 ou enquanto durar o estoque.</p>
     </form>
   </div>
@@ -245,6 +272,7 @@ const P=[
   [9062,'Suporte para agachamento búlgaro',2490,1890,15]
 ].map(r=>({c:String(r[0]),n:r[1],p:r[2],v:r[3],e:r[4],o:Math.floor((1-r[3]/r[2])*100+1e-6)}));
 const por=x=>x.v;
+const AV=P.filter(x=>x.e>0),MAXO=Math.max(...AV.map(x=>x.o));
 const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:v%1?2:0,maximumFractionDigits:2});
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 
@@ -274,7 +302,7 @@ const mq=document.getElementById('mq');
 function drawMarquee(){
   const host=mq.parentElement.clientWidth?mq.parentElement:mq.closest('.hgrid'),cs=getComputedStyle(host);
   const W=host.clientWidth-parseFloat(cs.paddingLeft)-parseFloat(cs.paddingRight);if(W<=0)return;
-  const txt='50% OFF',rows=15;
+  const txt=MAXO+'% OFF',rows=15;
   const c=document.createElement('canvas'),g=c.getContext('2d');
   g.font=`800 ${rows*1.32}px "League Spartan", sans-serif`;
   const cols=Math.ceil(g.measureText(txt).width)+2;
@@ -290,7 +318,7 @@ function drawMarquee(){
       out+=bulb(x*pitch+pitch/2,y*pitch+pitch/2,r,s?'#FFF6E0':'#FFE9C2',.35+x/cols*.9,s?'s':'');
     }
   }
-  mq.setAttribute('viewBox',`0 0 ${cols*pitch} ${H}`);
+  mq.setAttribute('aria-label',txt);mq.setAttribute('viewBox',`0 0 ${cols*pitch} ${H}`);
   mq.style.maxWidth=cols*pitch+'px';
   mq.innerHTML=`<defs><filter id="glow" x="-20%" y="-40%" width="140%" height="180%"><feGaussianBlur stdDeviation="${(pitch*.5).toFixed(1)}" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><g filter="url(#glow)">${out}</g>`;
 }
@@ -314,7 +342,7 @@ const bk=document.getElementById('bokeh');
 bk.innerHTML=Array.from({length:16},(_,i)=>{const s=rnd(30,120);return `<i style="left:${rnd(40,98).toFixed(1)}%;top:${rnd(8,92).toFixed(1)}%;width:${s}px;height:${s}px;--o:${rnd(.15,.5).toFixed(2)};--t:${(.6+i*.06).toFixed(2)}s"></i>`}).join('');
 
 /* máquinas em destaque (50% OFF) */
-const FEAT=['9114','9030','9069','9205','9002'].map(c=>P.find(x=>x.c===c));
+const FEAT=['9114','9030','9069','9205','9002'].map(c=>P.find(x=>x.c===c&&x.e>0)).filter(Boolean);
 const shots=document.getElementById('shots'),tagx=document.getElementById('tagx'),dots=document.getElementById('dots');
 shots.innerHTML=FEAT.map((x,i)=>`<figure class="shot${i?'':' cur'}"><img src="${IMG}${x.c}.jpg" alt="${esc(x.n)}" width="1000" height="1000"${i?' loading="lazy"':' fetchpriority="high"'}></figure>`).join('');
 dots.innerHTML=FEAT.map((x,i)=>`<button type="button" aria-label="${esc(x.n)}" aria-current="${!i}"></button>`).join('');
@@ -358,18 +386,43 @@ function count(){const now=new Date();let target,label;
   cnt.innerHTML=`<p>${label}</p>`+[[d,'dias'],[h,'horas'],[m,'min']].map(([v,l])=>`<div><span class="num">${String(v).padStart(2,'0')}</span><span>${l}</span></div>`).join('')}
 count();setInterval(count,30000);
 
+/* tagueamento: mesmo padrão da Black (dataLayer -> GTM-N8D9H6CS) */
+window.dataLayer=window.dataLayer||[];
+function track(ev,o){window.dataLayer.push(Object.assign({event:ev,page_path:location.pathname},o||{}))}
+const UTM_KEYS=['utm_source','utm_medium','utm_campaign','utm_id','utm_term'];
+try{const q=new URLSearchParams(location.search),got={};let has=false;
+  UTM_KEYS.forEach(k=>{const v=q.get(k);if(v){got[k]=v.slice(0,200);has=true}});
+  if(has)localStorage.setItem('ss_utms',JSON.stringify(got))}catch(x){}
+function utms(){try{return JSON.parse(localStorage.getItem('ss_utms')||'{}')}catch(x){return {}}}
+
+/* WhatsApp comercial. Com mais de um número, o envio alterna entre eles */
+const WHATS=['5545999265525'];
+
 /* catálogo + orçamento */
 const sel=new Set();
-const grid=document.getElementById('grid');
+const grid=document.getElementById('grid'),msg=document.getElementById('msg');
 function render(){
-  grid.innerHTML=P.map(x=>{const on=sel.has(x.c);
-    return `<article class="card${on?' on':''}"><div class="ph"><img loading="lazy" src="${IMG}${x.c}.jpg" alt="${esc(x.n)}" width="1000" height="1000"><span class="tag">${x.o}% OFF</span></div><div class="cb"><h3>${esc(x.n)}</h3><span class="cod">Cód. ${x.c}</span><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(por(x))}</span></div><span class="stock">Só ${x.e} ${x.e>1?'unidades':'unidade'} em estoque</span><div class="add"><button class="btn" type="button" data-c="${x.c}">${on?'Remover do orçamento':'Adicionar ao orçamento'}</button></div></div></article>`}).join('');
+  grid.innerHTML=P.map(x=>{const on=sel.has(x.c),out=x.e<=0;
+    return `<article class="card${on?' on':''}${out?' out':''}"><div class="ph"><img loading="lazy" src="${IMG}${x.c}.jpg" alt="${esc(x.n)}" width="1000" height="1000"><span class="tag">${out?'ESGOTADO':x.o+'% OFF'}</span></div><div class="cb"><h3>${esc(x.n)}</h3><span class="cod">Cód. ${x.c}</span><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(por(x))}</span></div><span class="stock">${out?'Esgotado no Natal':`Só ${x.e} ${x.e>1?'unidades':'unidade'} em estoque`}</span><div class="add"><button class="btn" type="button" data-c="${x.c}"${out?' disabled':''}>${out?'Esgotado':on?'Remover do orçamento':'Adicionar ao orçamento'}</button></div></div></article>`}).join('');
   const items=P.filter(x=>sel.has(x.c)),tot=items.reduce((a,x)=>a+por(x),0);
   document.getElementById('sel').innerHTML=items.length?`<ul>${items.map(x=>`<li><span>${esc(x.n)} · ${x.c}</span><span class="num">${brl(por(x))}</span></li>`).join('')}</ul><div class="tot"><span>Total no PIX</span><span class="num">${brl(tot)}</span></div>`:'<p class="empty">Nenhum equipamento selecionado ainda.</p>';
 }
-grid.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const c=b.dataset.c;
-  if(sel.has(c))sel.delete(c);else{sel.add(c);(window.dataLayer=window.dataLayer||[]).push({event:'add_to_orcamento',produto:c,categoria:'natal-26',codigo:c})}render()});
-document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();const btn=e.target.querySelector('button');btn.textContent='Prévia: aqui abre o WhatsApp';setTimeout(()=>btn.textContent='Enviar pelo WhatsApp',2200)});
+grid.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b||b.disabled)return;const c=b.dataset.c;
+  if(sel.has(c))sel.delete(c);else{sel.add(c);const x=P.find(p=>p.c===c);track('add_to_orcamento',{produto:x.n,categoria:'natal-26',codigo:+c})}
+  msg.textContent='';render()});
+document.getElementById('form').addEventListener('submit',e=>{
+  e.preventDefault();const f=e.target,items=P.filter(x=>sel.has(x.c));
+  if(!items.length){msg.textContent='Escolha pelo menos um equipamento na lista acima.';document.getElementById('produtos').scrollIntoView();return}
+  msg.textContent='';
+  let tot=0;const L=['Olá! Vim pela campanha de *Natal 2026* da Stark Strong e tenho interesse nestes equipamentos (pronta entrega):',''];
+  items.forEach(x=>{tot+=por(x);L.push(`• ${x.n} (cód. ${x.c}) · ${brl(por(x))} · -${x.o}%`)});
+  L.push('',`*Total da seleção: ${brl(tot)} à vista no PIX*`,'',`Nome: ${f.nome.value}`,`Academia: ${f.academia.value||'-'}`,`Cidade: ${f.cidade.value}`,`WhatsApp: ${f.whatsapp.value}`,`E-mail: ${f.email.value}`);
+  let k=0;try{k=+(localStorage.getItem('nt_w')||0);localStorage.setItem('nt_w',(k+1)%WHATS.length)}catch(x){}
+  const ev=Object.assign({origem:'natal-26',itens:items.length,valor:Math.round(tot*100)/100,moeda:'BRL'},utms());
+  track('formulario_enviado',Object.assign({form_id:'natal-26'},ev));
+  track('orcamento_enviado',ev);
+  window.open('https://wa.me/'+WHATS[k%WHATS.length]+'?text='+encodeURIComponent(L.join('\n')),'_blank');
+});
 render();
 }
 </script>
