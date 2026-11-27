@@ -136,12 +136,13 @@ h2 b{font-weight:700}
 .card.on{border-color:var(--ouro)}
 .card.on .add .btn{background:transparent;color:var(--ouro)}
 .note{font-size:12px;color:var(--mute);margin-top:18px}
-.card.out .ph img{filter:grayscale(1) brightness(.45)}
+.card.out{opacity:.4}
+.card.out .ph img{filter:grayscale(1) brightness(.6)}
 .card.out .tag{background:var(--offwhite);color:var(--preto)}
 .card.out .pr .num,.card.out .pr s{opacity:.45}
 .card.out .stock{color:var(--mute)}.card.out .stock::before{background:var(--mute);box-shadow:none;animation:none}
 .card.out .add .btn{background:transparent;border-color:#ffffff26;color:var(--mute);cursor:not-allowed}
-.card.out:hover{transform:none;border-color:#ffffff10}
+.card.out:hover{transform:none;border-color:#ffffff10;opacity:.55}
 .msg{min-height:20px;margin:0;font-size:13px;color:var(--quente)}
 .lgpd{font-size:11px;color:var(--mute);margin:0}
 
