@@ -196,7 +196,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <p class="upto fade">Até</p>
       <svg class="mq" id="mq" role="img" aria-label="50% OFF"></svg>
       <div class="fade">
-        <p class="sub">Em equipamentos selecionados, <b>à pronta entrega</b>. São 13 equipamentos, com unidades contadas.</p>
+        <p class="sub">Em equipamentos selecionados, <b>à pronta entrega</b>. Unidades contadas, e algumas já esgotaram.</p>
         <p class="fine">À vista no PIX · frete não incluso · até 26/12/2026 ou enquanto durar o estoque</p>
         <div class="ctas">
           <a class="btn" href="#produtos">Ver equipamentos</a>
@@ -217,7 +217,6 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
     <h2>Equipamentos <b>à pronta entrega</b></h2>
     <p class="lead">Selecione as máquinas e monte seu orçamento. Estoque limitado: quando acaba, acabou.</p>
     <div class="grid" id="grid"></div>
-    <p class="note">Prévia: estoque ainda não atualizado.</p>
   </div>
 </section>
 
@@ -269,7 +268,10 @@ const P=[
   [9006,'Tríceps articulado com cinta',19320,11592,3],
   [9088,'Banco para remada curvada',7820,4692,5],
   [9002,'Smith guiado',27485,19860,4],
-  [9062,'Suporte para agachamento búlgaro',2490,1890,15]
+  [9062,'Suporte para agachamento búlgaro',2490,1890,15],
+  // esgotados na Black: ficam na página como ESGOTADO, pra gerar escassez
+  [9061,'Adutora com carga',28635,17181,0],
+  [9057,'Polia simples guia linear',15900,9540,0]
 ].map(r=>({c:String(r[0]),n:r[1],p:r[2],v:r[3],e:r[4],o:Math.floor((1-r[3]/r[2])*100+1e-6)}));
 const por=x=>x.v;
 const AV=P.filter(x=>x.e>0),MAXO=Math.max(...AV.map(x=>x.o));
@@ -403,7 +405,7 @@ const sel=new Set();
 const grid=document.getElementById('grid'),msg=document.getElementById('msg');
 function render(){
   grid.innerHTML=P.map(x=>{const on=sel.has(x.c),out=x.e<=0;
-    return `<article class="card${on?' on':''}${out?' out':''}"><div class="ph"><img loading="lazy" src="${IMG}${x.c}.jpg" alt="${esc(x.n)}" width="1000" height="1000"><span class="tag">${out?'ESGOTADO':x.o+'% OFF'}</span></div><div class="cb"><h3>${esc(x.n)}</h3><span class="cod">Cód. ${x.c}</span><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(por(x))}</span></div><span class="stock">${out?'Esgotado no Natal':`Só ${x.e} ${x.e>1?'unidades':'unidade'} em estoque`}</span><div class="add"><button class="btn" type="button" data-c="${x.c}"${out?' disabled':''}>${out?'Esgotado':on?'Remover do orçamento':'Adicionar ao orçamento'}</button></div></div></article>`}).join('');
+    return `<article class="card${on?' on':''}${out?' out':''}"><div class="ph"><img loading="lazy" src="${IMG}${x.c}.jpg" alt="${esc(x.n)}" width="1000" height="1000"><span class="tag">${out?'ESGOTADO':x.o+'% OFF'}</span></div><div class="cb"><h3>${esc(x.n)}</h3><span class="cod">Cód. ${x.c}</span><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(por(x))}</span></div><span class="stock">${out?'Sem unidades em estoque':`Só ${x.e} ${x.e>1?'unidades':'unidade'} em estoque`}</span><div class="add"><button class="btn" type="button" data-c="${x.c}"${out?' disabled':''}>${out?'Esgotado':on?'Remover do orçamento':'Adicionar ao orçamento'}</button></div></div></article>`}).join('');
   const items=P.filter(x=>sel.has(x.c)),tot=items.reduce((a,x)=>a+por(x),0);
   document.getElementById('sel').innerHTML=items.length?`<ul>${items.map(x=>`<li><span>${esc(x.n)} · ${x.c}</span><span class="num">${brl(por(x))}</span></li>`).join('')}</ul><div class="tot"><span>Total no PIX</span><span class="num">${brl(tot)}</span></div>`:'<p class="empty">Nenhum equipamento selecionado ainda.</p>';
 }
