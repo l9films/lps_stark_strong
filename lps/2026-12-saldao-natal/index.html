@@ -6,12 +6,12 @@
 <title>Saldão de Natal Stark Strong</title>
 <!-- Prévia: remover o noindex quando o estoque atualizado entrar -->
 <meta name="robots" content="noindex">
-<link rel="icon" type="image/png" sizes="48x48" href="../2026-11-black-stark/img/favicon-48.png">
+<link rel="icon" type="image/png" sizes="48x48" href="img/favicon-48.png">
 <meta name="description" content="Saldão de Natal Stark Strong: até 50% OFF em equipamentos de academia à pronta entrega. De 07/12 a 26/12/2026 ou enquanto durar o estoque.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="preload" as="image" href="../2026-11-black-stark/img/9003.jpg">
+<link rel="preload" as="image" href="img/9003.jpg">
 <style>
 /* VOICE: premium, noite de Natal numa academia escura; sem vermelho/verde
    IDEA: vitrine à noite com letreiro de lâmpadas e máquina enfeitada com pisca-pisca
@@ -171,7 +171,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <p class="upto fade">Até</p>
       <svg class="mq" id="mq" role="img" aria-label="50% OFF"></svg>
       <div class="fade">
-        <p class="sub">Em equipamentos selecionados, <b>à pronta entrega</b>. São 19 máquinas, com unidades contadas.</p>
+        <p class="sub">Em equipamentos selecionados, <b>à pronta entrega</b>. São 13 equipamentos, com unidades contadas.</p>
         <p class="fine">À vista no PIX · frete não incluso · até 26/12/2026 ou enquanto durar o estoque</p>
         <div class="ctas">
           <a class="btn" href="#produtos">Ver equipamentos</a>
@@ -191,13 +191,8 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
   <div class="wrap">
     <h2>Equipamentos <b>à pronta entrega</b></h2>
     <p class="lead">Selecione as máquinas e monte seu orçamento. Estoque limitado: quando acaba, acabou.</p>
-    <div class="filters" role="group" aria-label="Filtrar por desconto">
-      <button type="button" data-f="all" aria-pressed="true">Todas</button>
-      <button type="button" data-f="50" aria-pressed="false">50% OFF</button>
-      <button type="button" data-f="40" aria-pressed="false">40% OFF</button>
-    </div>
     <div class="grid" id="grid"></div>
-    <p class="note">Prévia: produtos e preços da Black; estoque ainda não atualizado.</p>
+    <p class="note">Prévia: estoque ainda não atualizado.</p>
   </div>
 </section>
 
@@ -226,36 +221,30 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 
 <script>
 {
-const IMG='../2026-11-black-stark/img/';
+const IMG='img/';
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const COLS=['#C7A56A','#FFE9C2','#E8D3A3','#FFF6E0'];
 const rnd=(a,b)=>a+Math.random()*(b-a);
 const hero=document.querySelector('.hero');
 const INTRO=1500; // ms até o fim do acendimento
 
-// [codigo, nome, preço de tabela, desconto %, unidades] — estoque ainda é o da Black: atualizar
+// [codigo, nome, preço de tabela, preço no PIX, unidades] — estoque a atualizar depois das vendas da Black
 const P=[
-  [9003,'Abdutora com carga',28635,50,6],
-  [9091,'Extensora com carga eixo central',27370,50,3],
-  [9004,'Puxador alto polia dupla',27485,50,6],
-  [9005,'Remada baixa com carga polia dupla',25070,50,5],
-  [9039,'Flexora em pé com carga',27370,50,3],
-  [9061,'Adutora com carga',28635,40,3],
-  [9088,'Banco para remada curvada',7820,40,5],
-  [9069,'Hack de agachamento apoio lombar com guias lineares',25185,40,3],
-  [9057,'Polia simples guia linear',15900,40,3],
-  [9227,'Puxador alto polia central',25760,40,3],
-  [9113,'Puxador alto frontal articulado',20240,40,3],
-  [9121,'Remada articulada low row',21390,40,3],
-  [9205,'V Squat',22770,40,3],
-  [9006,'Tríceps articulado com cinta',19320,40,3],
-  [9114,'Remada sentada articulada',20010,40,3],
-  [9086,'Supino declinado articulado',20585,40,3],
-  [9116,'Supino e desenvolvimento de ombros com carga',28635,40,3],
-  [9058,'Supino inclinado articulado com pé de arranque',19205,40,3],
-  [9100,'Supino inclinado articulado',20585,40,3]
-].map(r=>({c:String(r[0]),n:r[1],p:r[2],o:r[3],e:r[4]}));
-const por=x=>Math.round(x.p*(100-x.o))/100;
+  [9114,'Remada sentada articulada',20010,9950,3],
+  [9030,'Remada cavalinho com regulagem',13685,7945,4],
+  [9069,'Hack de agachamento apoio lombar com guias lineares',25185,15111,3],
+  [9205,'V Squat',22770,13662,3],
+  [9113,'Puxador alto frontal articulado',20240,12144,3],
+  [9121,'Remada articulada low row',21390,12834,3],
+  [9086,'Supino declinado articulado',20585,12351,3],
+  [9100,'Supino inclinado articulado',20585,12351,3],
+  [9058,'Supino inclinado articulado com pé de arranque',19205,11523,3],
+  [9006,'Tríceps articulado com cinta',19320,11592,3],
+  [9088,'Banco para remada curvada',7820,4692,5],
+  [9002,'Smith guiado',27485,19860,4],
+  [9062,'Suporte para agachamento búlgaro',2490,1890,15]
+].map(r=>({c:String(r[0]),n:r[1],p:r[2],v:r[3],e:r[4],o:Math.floor((1-r[3]/r[2])*100+1e-6)}));
+const por=x=>x.v;
 const brl=v=>v.toLocaleString('pt-BR',{style:'currency',currency:'BRL',minimumFractionDigits:v%1?2:0,maximumFractionDigits:2});
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]);
 
@@ -325,7 +314,7 @@ const bk=document.getElementById('bokeh');
 bk.innerHTML=Array.from({length:16},(_,i)=>{const s=rnd(30,120);return `<i style="left:${rnd(40,98).toFixed(1)}%;top:${rnd(8,92).toFixed(1)}%;width:${s}px;height:${s}px;--o:${rnd(.15,.5).toFixed(2)};--t:${(.6+i*.06).toFixed(2)}s"></i>`}).join('');
 
 /* máquinas em destaque (50% OFF) */
-const FEAT=P.filter(x=>x.o===50);
+const FEAT=['9114','9030','9069','9205','9002'].map(c=>P.find(x=>x.c===c));
 const shots=document.getElementById('shots'),tagx=document.getElementById('tagx'),dots=document.getElementById('dots');
 shots.innerHTML=FEAT.map((x,i)=>`<figure class="shot${i?'':' cur'}"><img src="${IMG}${x.c}.jpg" alt="${esc(x.n)}" width="1000" height="1000"${i?' loading="lazy"':' fetchpriority="high"'}></figure>`).join('');
 dots.innerHTML=FEAT.map((x,i)=>`<button type="button" aria-label="${esc(x.n)}" aria-current="${!i}"></button>`).join('');
@@ -370,17 +359,16 @@ function count(){const now=new Date();let target,label;
 count();setInterval(count,30000);
 
 /* catálogo + orçamento */
-const sel=new Set();let filt='all';
+const sel=new Set();
 const grid=document.getElementById('grid');
 function render(){
-  grid.innerHTML=P.filter(x=>filt==='all'||String(x.o)===filt).map(x=>{const on=sel.has(x.c);
+  grid.innerHTML=P.map(x=>{const on=sel.has(x.c);
     return `<article class="card${on?' on':''}"><div class="ph"><img loading="lazy" src="${IMG}${x.c}.jpg" alt="${esc(x.n)}" width="1000" height="1000"><span class="tag">${x.o}% OFF</span></div><div class="cb"><h3>${esc(x.n)}</h3><span class="cod">Cód. ${x.c}</span><div class="pr"><s>${brl(x.p)}</s><span class="num">${brl(por(x))}</span></div><span class="stock">Só ${x.e} ${x.e>1?'unidades':'unidade'} em estoque</span><div class="add"><button class="btn" type="button" data-c="${x.c}">${on?'Remover do orçamento':'Adicionar ao orçamento'}</button></div></div></article>`}).join('');
   const items=P.filter(x=>sel.has(x.c)),tot=items.reduce((a,x)=>a+por(x),0);
   document.getElementById('sel').innerHTML=items.length?`<ul>${items.map(x=>`<li><span>${esc(x.n)} · ${x.c}</span><span class="num">${brl(por(x))}</span></li>`).join('')}</ul><div class="tot"><span>Total no PIX</span><span class="num">${brl(tot)}</span></div>`:'<p class="empty">Nenhum equipamento selecionado ainda.</p>';
 }
 grid.addEventListener('click',e=>{const b=e.target.closest('[data-c]');if(!b)return;const c=b.dataset.c;
   if(sel.has(c))sel.delete(c);else{sel.add(c);(window.dataLayer=window.dataLayer||[]).push({event:'add_to_orcamento',produto:c,categoria:'natal-26',codigo:c})}render()});
-document.querySelectorAll('.filters button').forEach(b=>b.addEventListener('click',()=>{filt=b.dataset.f;document.querySelectorAll('.filters button').forEach(x=>x.setAttribute('aria-pressed',x===b));render()}));
 document.getElementById('form').addEventListener('submit',e=>{e.preventDefault();const btn=e.target.querySelector('button');btn.textContent='Prévia: aqui abre o WhatsApp';setTimeout(()=>btn.textContent='Enviar pelo WhatsApp',2200)});
 render();
 }

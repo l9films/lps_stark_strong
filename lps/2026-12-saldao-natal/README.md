@@ -36,3 +36,8 @@ Ainda sem GTM, sem captura de UTM e sem eventos de envio do formulário (a Black
 - [ ] Remover o `noindex` quando os dados forem reais; adicionar canonical e Open Graph
 - [ ] `copy.md` com textos aprovados
 - [ ] Checklist da seção 5 do CLAUDE.md
+
+## Seleção de produtos (27/11/2026)
+- Da Black, saíram todos os equipamentos com bateria de peso (9003, 9091, 9004, 9005, 9039, 9061, 9057, 9227, 9116).
+- Entraram do inventário (proposta Bling nº 7461): 9030 Remada cavalinho (R$ 7.945), 9002 Smith guiado (R$ 19.860), 9062 Suporte búlgaro (R$ 1.890); 9114 Remada sentada articulada passou a R$ 9.950.
+- Total: 13 equipamentos. Fotos em `img/` (as 3 novas recortadas do PDF). Estoque ainda a atualizar.
